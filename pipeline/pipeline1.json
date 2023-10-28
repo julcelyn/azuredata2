@@ -51,8 +51,66 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"enableStaging": false
-							}
+								"source": {
+									"type": "AzureSqlSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "AzureSqlSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "AzureSqlTable1",
+									"type": "DatasetReference",
+									"parameters": {
+										"URL_Key_Vault": {
+											"value": "https://kv-julcelyn.vault.azure.net/",
+											"type": "Expression"
+										},
+										"Schema": {
+											"value": "@item().Schema",
+											"type": "Expression"
+										},
+										"tabla": {
+											"value": "@item().tabla",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "AzureSqlTable2",
+									"type": "DatasetReference",
+									"parameters": {
+										"URL_Key_Vault": {
+											"value": "https://kv-julcelyn.vault.azure.net/",
+											"type": "Expression"
+										},
+										"Schema2": {
+											"value": "@item().Schema2",
+											"type": "Expression"
+										},
+										"tabla": {
+											"value": "@item().tabla",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						}
 					]
 				}
@@ -60,16 +118,12 @@
 		],
 		"parameters": {
 			"Schema": {
-				"type": "array",
-				"defaultValue": [
-					"hub"
-				]
+				"type": "string",
+				"defaultValue": "Finance"
 			},
 			"schema2": {
-				"type": "array",
-				"defaultValue": [
-					"dbo"
-				]
+				"type": "string",
+				"defaultValue": "dbo"
 			}
 		},
 		"variables": {
