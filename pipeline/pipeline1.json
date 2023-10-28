@@ -62,7 +62,7 @@
 			"Schema": {
 				"type": "array",
 				"defaultValue": [
-					"Finalce"
+					"hub"
 				]
 			},
 			"schema2": {
