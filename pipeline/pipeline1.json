@@ -113,7 +113,7 @@
 		"parameters": {
 			"Schema": {
 				"type": "string",
-				"defaultValue": "Finance"
+				"defaultValue": "hub"
 			},
 			"schema2": {
 				"type": "string",
