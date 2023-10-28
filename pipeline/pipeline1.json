@@ -120,7 +120,7 @@
 			}
 		],
 		"parameters": {
-			"Schema": {
+			"schema": {
 				"type": "string",
 				"defaultValue": "hub"
 			},
