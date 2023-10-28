@@ -78,10 +78,6 @@
 									"referenceName": "AzureSqlTable1",
 									"type": "DatasetReference",
 									"parameters": {
-										"URL_Key_Vault": {
-											"value": "https://kv-julcelyn.vault.azure.net/",
-											"type": "Expression"
-										},
 										"Schema": {
 											"value": "@item().Schema",
 											"type": "Expression"
