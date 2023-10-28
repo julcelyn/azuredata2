@@ -6,9 +6,6 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"URL_Key_Vault": {
-				"type": "string"
-			},
 			"Schema2": {
 				"type": "string"
 			},

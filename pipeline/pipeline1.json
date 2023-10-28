@@ -59,7 +59,9 @@
 								"sink": {
 									"type": "AzureSqlSink",
 									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
 								"translator": {
@@ -96,10 +98,6 @@
 									"referenceName": "AzureSqlTable2",
 									"type": "DatasetReference",
 									"parameters": {
-										"URL_Key_Vault": {
-											"value": "https://kv-julcelyn.vault.azure.net/",
-											"type": "Expression"
-										},
 										"Schema2": {
 											"value": "@item().Schema2",
 											"type": "Expression"
