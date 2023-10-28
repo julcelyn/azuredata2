@@ -133,7 +133,11 @@
 			"tabla": {
 				"type": "Array",
 				"defaultValue": [
-					"[\"LogisticsAddressCountryRegionStaging¨,\"PaymTermInvoiceStaging\",\"UFTProjInvoiceJourStaging\",\"aqs_canton\",\"aqs_cliente\"]"
+					"LogisticsAddressCountryRegionStaging",
+					"PaymTermInvoiceStaging",
+					"UFTProjInvoiceJourStaging",
+					"aqs_canton",
+					"aqs_cliente"
 				]
 			}
 		},
