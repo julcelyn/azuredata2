@@ -60,7 +60,10 @@
 									"type": "AzureSqlSink",
 									"writeBehavior": "upsert",
 									"upsertSettings": {
-										"useTempDB": true
+										"useTempDB": true,
+										"keys": [
+											" COUNTRYREGION"
+										]
 									},
 									"sqlWriterUseTableLock": false,
 									"disableMetricsCollection": false
