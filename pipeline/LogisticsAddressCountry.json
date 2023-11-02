@@ -1,9 +1,9 @@
 {
-	"name": "pipeline3",
+	"name": "LogisticsAddressCountry",
 	"properties": {
 		"activities": [
 			{
-				"name": "Set variable1",
+				"name": "Set Variable1",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
@@ -24,7 +24,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Set variable1",
+						"activity": "Set Variable1",
 						"dependencyConditions": [
 							"Succeeded"
 						]

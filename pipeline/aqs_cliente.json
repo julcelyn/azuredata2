@@ -1,5 +1,5 @@
 {
-	"name": "LogisticsAddressCountryRegionStaging",
+	"name": "aqs_cliente",
 	"properties": {
 		"activities": [
 			{
@@ -14,7 +14,7 @@
 				"typeProperties": {
 					"variableName": "tabla",
 					"value": {
-						"value": "@json('[\n{\n      \"schema\": \"dbo\",    \n        \"schema2\": \"dbt\",     \n        \"tabla\":\"LogisticsAddressCountryRegionStaging\" ,   \n        \"pk_integracion\": \"COUNTRYREGION\"\n        },\n\n         ]')",
+						"value": "@json('[\n{\n      \"schema\": \"dbo\",    \n        \"schema2\": \"dbt\",     \n        \"tabla\":\"aqs_cliente\" ,   \n        \"pk_integracion\": \"IdClienteCrm\"\n        },\n\n         ]')",
 						"type": "Expression"
 					}
 				}
@@ -62,7 +62,7 @@
 									"upsertSettings": {
 										"useTempDB": true,
 										"keys": [
-											"COUNTRYREGION"
+											"Codigo"
 										]
 									},
 									"sqlWriterUseTableLock": false,

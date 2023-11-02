@@ -1,0 +1,97 @@
+{
+	"name": "pipeline6",
+	"properties": {
+		"activities": [
+			{
+				"name": "LogisticsAddressCountryRegionStaging",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "LogisticsAddressCountryRegionStaging",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "UFTProjInvoiceJourStaging",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "LogisticsAddressCountry",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "UFTProjInvoiceJourStaging",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "LogisticsAddressCountry",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "LogisticsAddressCountryRegionStaging",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "LogisticsAddressCountry",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "aqs_canton",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "UFTProjInvoiceJourStaging",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "aqs_cliente",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "aqs_canton",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "aqs_cliente",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
